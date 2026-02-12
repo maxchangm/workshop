@@ -60,57 +60,6 @@ IMAGE_RESOLUTION_SCALE = 2.0
 
 
 # ═══════════════════════════════════════════════════════════════════════════
-# TODO 5 (★★★★): Custom Picture Serializer
-# ═══════════════════════════════════════════════════════════════════════════
-# When the chunker encounters a PictureItem, it calls serialize() to convert
-# it to text.  The default just produces an empty Markdown image tag.
-#
-# Your task: override serialize() so that pictures are represented by their
-# VLM-generated description and classification label instead.
-#
-# Explore the PictureItem type – look at item.meta and its attributes.
-# What useful information did the VLM pipeline store there?
-# ───────────────────────────────────────────────────────────────────────────
-
-
-class AnnotationPictureSerializer(MarkdownPictureSerializer):
-    @override
-    def serialize(
-        self,
-        *,
-        item: PictureItem,
-        doc_serializer: BaseDocSerializer,
-        doc: DoclingDocument,
-        **kwargs: object,
-    ) -> SerializationResult:
-        text_parts: list[str] = []
-
-        # ┌─────────────────────────────────────────────────────────┐
-        # │  TODO 5: Build a text representation of this picture.   │
-        # │                                                         │
-        # │  Check item.meta for:                                   │
-        # │    • classification  → append the class_name            │
-        # │    • description     → append the description text      │
-        # │                                                         │
-        # │  Append each piece to text_parts as a formatted string. │
-        # └─────────────────────────────────────────────────────────┘
-
-        text_res = "\n".join(text_parts)
-        if text_res:
-            text_res = doc_serializer.post_process(text=text_res, **kwargs)
-        return create_ser_result(text=text_res, span_source=item)
-
-
-class AnnotationSerializerProvider(ChunkingSerializerProvider):
-    def get_serializer(self, doc: DoclingDocument) -> ChunkingDocSerializer:
-        return ChunkingDocSerializer(
-            doc=doc,
-            table_serializer=MarkdownTableSerializer(),
-            picture_serializer=AnnotationPictureSerializer(),
-        )
-
-
-# ═══════════════════════════════════════════════════════════════════════════
 # Helper functions (provided – no changes needed)
 # ═══════════════════════════════════════════════════════════════════════════
 
@@ -142,6 +91,15 @@ def _prompt_for_input(default_path: Path) -> Path:
     if not user_input:
         return default_path
     return Path(user_input)
+
+
+def _create_output_dir(root: Path) -> Path:
+    timestamp = datetime.now().strftime("%Y%m%d_%H%M%S")
+    output_dir = root / timestamp
+    (output_dir / "images").mkdir(parents=True, exist_ok=False)
+    (output_dir / "tables").mkdir(parents=True, exist_ok=False)
+    (output_dir / "chunks").mkdir(parents=True, exist_ok=False)
+    return output_dir
 
 
 # ═══════════════════════════════════════════════════════════════════════════
@@ -206,41 +164,6 @@ def _build_converter(vlm_url: str, model: str) -> DocumentConverter:
     # │  PdfFormatOption that wraps your pipeline_options.           │
     # └──────────────────────────────────────────────────────────────┘
     raise NotImplementedError("TODO 2: return a DocumentConverter")
-
-
-# ═══════════════════════════════════════════════════════════════════════════
-# TODO 6 (★★★): Set Up the Hybrid Chunker
-# ═══════════════════════════════════════════════════════════════════════════
-# HybridChunker splits a document into chunks that respect both the heading
-# hierarchy and a token budget.  It needs a tokenizer and a serializer.
-#
-# Your task: create and return a HybridChunker instance.
-# ───────────────────────────────────────────────────────────────────────────
-
-
-def _build_chunker() -> HybridChunker:
-    tokenizer = HuggingFaceTokenizer(
-        tokenizer=AutoTokenizer.from_pretrained(EMBED_MODEL_ID),
-        max_tokens=512,
-    )
-
-    # ┌──────────────────────────────────────────────────────────────┐
-    # │  TODO 6: Return a HybridChunker.                            │
-    # │                                                              │
-    # │  Pass the tokenizer created above and wire in the           │
-    # │  AnnotationSerializerProvider so our custom picture          │
-    # │  serializer is used during chunking.                        │
-    # └──────────────────────────────────────────────────────────────┘
-    raise NotImplementedError("TODO 6: return a HybridChunker")
-
-
-def _create_output_dir(root: Path) -> Path:
-    timestamp = datetime.now().strftime("%Y%m%d_%H%M%S")
-    output_dir = root / timestamp
-    (output_dir / "images").mkdir(parents=True, exist_ok=False)
-    (output_dir / "tables").mkdir(parents=True, exist_ok=False)
-    (output_dir / "chunks").mkdir(parents=True, exist_ok=False)
-    return output_dir
 
 
 # ═══════════════════════════════════════════════════════════════════════════
@@ -314,6 +237,83 @@ def _extract_images(doc: DoclingDocument, images_dir: Path) -> int:
                 json.dumps(meta, indent=2, ensure_ascii=False), encoding="utf-8"
             )
     return count
+
+
+# ═══════════════════════════════════════════════════════════════════════════
+# TODO 5 (★★★★): Custom Picture Serializer
+# ═══════════════════════════════════════════════════════════════════════════
+# When the chunker encounters a PictureItem, it calls serialize() to convert
+# it to text.  The default just produces an empty Markdown image tag.
+#
+# Your task: override serialize() so that pictures are represented by their
+# VLM-generated description and classification label instead.
+#
+# Explore the PictureItem type – look at item.meta and its attributes.
+# What useful information did the VLM pipeline store there?
+# ───────────────────────────────────────────────────────────────────────────
+
+
+class AnnotationPictureSerializer(MarkdownPictureSerializer):
+    @override
+    def serialize(
+        self,
+        *,
+        item: PictureItem,
+        doc_serializer: BaseDocSerializer,
+        doc: DoclingDocument,
+        **kwargs: object,
+    ) -> SerializationResult:
+        text_parts: list[str] = []
+
+        # ┌─────────────────────────────────────────────────────────┐
+        # │  TODO 5: Build a text representation of this picture.   │
+        # │                                                         │
+        # │  Check item.meta for:                                   │
+        # │    • classification  → append the class_name            │
+        # │    • description     → append the description text      │
+        # │                                                         │
+        # │  Append each piece to text_parts as a formatted string. │
+        # └─────────────────────────────────────────────────────────┘
+
+        text_res = "\n".join(text_parts)
+        if text_res:
+            text_res = doc_serializer.post_process(text=text_res, **kwargs)
+        return create_ser_result(text=text_res, span_source=item)
+
+
+class AnnotationSerializerProvider(ChunkingSerializerProvider):
+    def get_serializer(self, doc: DoclingDocument) -> ChunkingDocSerializer:
+        return ChunkingDocSerializer(
+            doc=doc,
+            table_serializer=MarkdownTableSerializer(),
+            picture_serializer=AnnotationPictureSerializer(),
+        )
+
+
+# ═══════════════════════════════════════════════════════════════════════════
+# TODO 6 (★★★): Set Up the Hybrid Chunker
+# ═══════════════════════════════════════════════════════════════════════════
+# HybridChunker splits a document into chunks that respect both the heading
+# hierarchy and a token budget.  It needs a tokenizer and a serializer.
+#
+# Your task: create and return a HybridChunker instance.
+# ───────────────────────────────────────────────────────────────────────────
+
+
+def _build_chunker() -> HybridChunker:
+    tokenizer = HuggingFaceTokenizer(
+        tokenizer=AutoTokenizer.from_pretrained(EMBED_MODEL_ID),
+        max_tokens=512,
+    )
+
+    # ┌──────────────────────────────────────────────────────────────┐
+    # │  TODO 6: Return a HybridChunker.                            │
+    # │                                                              │
+    # │  Pass the tokenizer created above and wire in the           │
+    # │  AnnotationSerializerProvider so our custom picture          │
+    # │  serializer is used during chunking.                        │
+    # └──────────────────────────────────────────────────────────────┘
+    raise NotImplementedError("TODO 6: return a HybridChunker")
 
 
 # ═══════════════════════════════════════════════════════════════════════════

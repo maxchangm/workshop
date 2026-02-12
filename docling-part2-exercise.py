@@ -15,7 +15,8 @@ Useful references:
 
 Run with:
     uv run --no-project --with duckdb workshop/docling-part2-exercise.py \\
-        -i workshop/output/<TIMESTAMP>/chunks/chunks.json
+        -i workshop/output/    uv run --no-project --with duckdb workshop/docling-part2-exercise.py \\
+        -i workshop/output/<TIMESTAMP>/chunks/chunks.json/chunks/chunks.json
 
 Optional flags:
     --db   PATH   DuckDB file path (default: workshop/output/rag_chunks.duckdb)
