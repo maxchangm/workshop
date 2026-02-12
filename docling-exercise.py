@@ -55,7 +55,7 @@ DEFAULT_OUTPUT_ROOT = Path(__file__).resolve().parent / "output"
 DEFAULT_VLM_URL = "https://dev-8--vllm-qwen3-vl-8b-serve.modal.run"
 DEFAULT_VLM_MODEL = "qwen3-vl-8b"
 DEFAULT_PICTURE_PROMPT = "Describe the image in 1-3 concise sentences. Be accurate."
-EMBED_MODEL_ID = "sentence-transformers/all-MiniLM-L6-v2"
+EMBED_MODEL_ID = "Qwen/Qwen3-Embedding-0.6B"
 IMAGE_RESOLUTION_SCALE = 2.0
 
 
@@ -221,6 +221,7 @@ def _build_converter(vlm_url: str, model: str) -> DocumentConverter:
 def _build_chunker() -> HybridChunker:
     tokenizer = HuggingFaceTokenizer(
         tokenizer=AutoTokenizer.from_pretrained(EMBED_MODEL_ID),
+        max_tokens=512,
     )
 
     # ┌──────────────────────────────────────────────────────────────┐
