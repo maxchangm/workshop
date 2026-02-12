@@ -1,0 +1,35 @@
+[project]
+name = "hkpf-rag-workshop"
+version = "1.0.0"
+description = "RAG Workshop for HKPF - Hands-on materials for building retrieval systems"
+requires-python = ">=3.10"
+license = { text = "MIT" }
+authors = [
+    { name = "Workshop Instructor" }
+]
+
+dependencies = [
+    "marimo>=0.9.14",
+    "deepeval>=2.0.0",
+    "rank-bm25>=0.2.2",
+    "sentence-transformers>=3.0.0",
+    "duckdb>=1.0.0",
+    "ollama>=0.3.0",
+    "numpy>=1.24.0",
+]
+
+[project.optional-dependencies]
+dev = [
+    "pytest>=8.0.0",
+    "ruff>=0.4.0",
+]
+
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[tool.uv]
+dev-dependencies = [
+    "pytest>=8.0.0",
+    "ruff>=0.4.0",
+]

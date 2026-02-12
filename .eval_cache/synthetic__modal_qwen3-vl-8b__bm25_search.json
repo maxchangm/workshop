@@ -1,0 +1,42 @@
+{
+  "corpus_name": "synthetic",
+  "judge_model": "modal/qwen3-vl-8b",
+  "method": "BM25 Search",
+  "avg_scores": {
+    "Contextual Precision": 0.25,
+    "Answer Relevancy": 1.0
+  },
+  "per_case": [
+    {
+      "input": "What is ML?",
+      "actual_output": "Machine Learning (ML) refers to the application of artificial intelligence techniques used to enable computers to learn from data without being explicitly programmed. It involves training models using algorithms that can automatically improve their performance over time with experience and input.",
+      "expected_output": "Machine learning, a subset of AI, enables systems to learn from data",
+      "retrieval_context": []
+    },
+    {
+      "input": "How do automobiles work?",
+      "actual_output": "Cars function by utilizing various components such as engines, transmission, brakes, steering mechanisms, suspension systems, lighting systems, air conditioning, power windows and mirrors, cruise control, electronic stability control, fuel injection or carburetor system, brake lights, reverse gear, parking sensors, windshield wipers, traction controls, automatic transmissions, battery management systems.",
+      "expected_output": "Cars use internal combustion engines to convert fuel into mechanical energy",
+      "retrieval_context": [
+        "Students learn through practice and feedback. Educational systems adapt to individual needs. Personalized learning improves outcomes. Cognitive science studies how humans acquire knowledge."
+      ]
+    },
+    {
+      "input": "How to fix code errors?",
+      "actual_output": "To fix code errors, you can follow these steps:\n\n1. Identify the specific code error that needs to be fixed by using a debugger or logging mechanism.\n2. Review your code and identify the line of code causing the error.\n3. Use a syntax checker tool to find any syntax errors in your code. \n4. Utilize static analysis tools to check for potential bugs, like type mismatches or logical errors.\n5. If you can't fix the error with these methods, consider using a linter to ensure consistent coding style and adhere to standards.",
+      "expected_output": "Debugging involves identifying and resolving software defects",
+      "retrieval_context": [
+        "Fix code errors to fix programs. Fix debugging by fixing lines. Fix syntax to fix runtime. Fix logic to fix output.",
+        "Code reviews prevent code errors. Static analysis finds code mistakes. Linting checks code style. Code standards reduce code bugs in code bases.",
+        "Students learn through practice and feedback. Educational systems adapt to individual needs. Personalized learning improves outcomes. Cognitive science studies how humans acquire knowledge."
+      ]
+    },
+    {
+      "input": "What is RAG?",
+      "actual_output": "RAG refers to Real-time Active Data Retrieval. It involves retrieving data in real time using a technology that allows the system to update its knowledge base with new data as it becomes available. This enhances the system's ability to respond quickly and accurately to changes in the environment or data.",
+      "expected_output": "Retrieval-Augmented Generation combines retrieval with language models",
+      "retrieval_context": []
+    }
+  ],
+  "cached_at": "2026-02-10 22:49:56"
+}

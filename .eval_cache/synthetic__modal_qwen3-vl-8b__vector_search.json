@@ -1,0 +1,52 @@
+{
+  "corpus_name": "synthetic",
+  "judge_model": "modal/qwen3-vl-8b",
+  "method": "Vector Search",
+  "avg_scores": {
+    "Contextual Precision": 0.7083333333333333,
+    "Answer Relevancy": 0.75
+  },
+  "per_case": [
+    {
+      "input": "What is ML?",
+      "actual_output": "Machine Learning (ML)",
+      "expected_output": "Machine learning, a subset of AI, enables systems to learn from data",
+      "retrieval_context": [
+        "Machine learning, a subset of artificial intelligence, enables systems to learn patterns from data without explicit programming.",
+        "Large language models generate text using transformers. GPT processes tokens autoregressively. LLMs are trained on internet text. Prompt engineering guides outputs.",
+        "Machine learning uses statistical methods. It involves training models on data. The process includes feature extraction and model selection."
+      ]
+    },
+    {
+      "input": "How do automobiles work?",
+      "actual_output": "Based on the context provided, automobiles operate through internal combustion engines that convert fuel into mechanical power via controlled explosions within cylinders. Vehicles contain transmissions, differentials, and exhaust systems. Mechanics repair brake pads and replace oil. Dashboards display speed and fuel levels. Electric vehicles use battery packs and electric motors. EV charging stations provide power. Tesla produces electric cars.",
+      "expected_output": "Cars use internal combustion engines to convert fuel into mechanical energy",
+      "retrieval_context": [
+        "Cars operate through internal combustion engines that transform fuel into mechanical power via controlled explosions within cylinders.",
+        "Vehicles contain transmissions, differentials, and exhaust systems. Mechanics repair brake pads and replace oil. Dashboards display speed and fuel levels.",
+        "Electric vehicles use battery packs and electric motors. EV charging stations provide power. Tesla produces electric cars. Range anxiety affects EV adoption."
+      ]
+    },
+    {
+      "input": "How to fix code errors?",
+      "actual_output": "To fix code errors, you should follow these steps:\n\n1. Identify the errors by reviewing the code.\n2. Fix syntax errors that violate grammar rules.\n3. Address runtime errors that occur during execution of the program.\n4. Correct logic errors that produce wrong results.\n5. Apply exceptions to halt program flow and prevent unintended behavior.\n\nBy addressing each type of error separately, you can systematically fix errors in your code, ensuring it functions correctly and produces accurate outputs.",
+      "expected_output": "Debugging involves identifying and resolving software defects",
+      "retrieval_context": [
+        "Fix code errors to fix programs. Fix debugging by fixing lines. Fix syntax to fix runtime. Fix logic to fix output.",
+        "Syntax errors violate grammar rules. Runtime errors occur during execution. Logic errors produce wrong results. Exceptions halt program flow.",
+        "Code reviews prevent code errors. Static analysis finds code mistakes. Linting checks code style. Code standards reduce code bugs in code bases."
+      ]
+    },
+    {
+      "input": "What is RAG?",
+      "actual_output": "RAG stands for Resource Allocation Garbage Collection, which refers to a collection of memory-related issues that can lead to performance problems and errors in applications or systems.",
+      "expected_output": "Retrieval-Augmented Generation combines retrieval with language models",
+      "retrieval_context": [
+        "Buffer overflow causes RAG faults. Memory RAG errors crash systems. RAG allocation fails when RAM exhausted. RAG segmentation faults indicate pointer issues.",
+        "RAG designers create RAG collections. RAG fashion shows display RAG clothing. RAG industry produces RAG garments. RAG trends influence RAG styles.",
+        "Web servers handle HTTP requests. Nginx serves static files. Load balancers distribute traffic. CDNs cache content globally."
+      ]
+    }
+  ],
+  "cached_at": "2026-02-10 22:52:40"
+}

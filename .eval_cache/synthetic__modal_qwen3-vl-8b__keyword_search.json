@@ -1,0 +1,46 @@
+{
+  "corpus_name": "synthetic",
+  "judge_model": "modal/qwen3-vl-8b",
+  "method": "Keyword Search",
+  "avg_scores": {
+    "Contextual Precision": 0.20833333333333331,
+    "Answer Relevancy": 0.65
+  },
+  "per_case": [
+    {
+      "input": "What is ML?",
+      "actual_output": "Machine Learning (ML) refers to a subset of Artificial Intelligence that enables computer systems to learn and improve from experience without being explicitly programmed. It involves algorithms and statistical models that enable computers to learn patterns in data, allowing them to make predictions or decisions based on input information.",
+      "expected_output": "Machine learning, a subset of AI, enables systems to learn from data",
+      "retrieval_context": []
+    },
+    {
+      "input": "How do automobiles work?",
+      "actual_output": "Automobiles are powered by engines that convert energy from chemical fuels into mechanical motion using various propulsion systems such as internal combustion engines, electric motors, and hybrid powertrains. These engines generate electricity through generators or batteries, which then powers the vehicle's electrical components.",
+      "expected_output": "Cars use internal combustion engines to convert fuel into mechanical energy",
+      "retrieval_context": [
+        "Machine learning requires machine learning algorithms. Machine learning models need machine learning data. Without machine learning techniques, machine learning cannot work.",
+        "Students learn through practice and feedback. Educational systems adapt to individual needs. Personalized learning improves outcomes. Cognitive science studies how humans acquire knowledge."
+      ]
+    },
+    {
+      "input": "How to fix code errors?",
+      "actual_output": "To fix code errors, you can follow the steps outlined in the context provided:\n\n1. Identify errors: Look for syntax errors, logical errors, runtime errors, and debugging issues.\n2. Fix syntax errors: Correct any mistakes in your programming language's syntax.\n3. Fix logic errors: Ensure that your code functions as intended by analyzing its logic.\n4. Fix runtime errors: Address the runtime issues (errors during program execution) to ensure smooth operation.\n5. Debugging: Utilize debugging techniques such as tracing, breakpoints, and step-through analysis to pinpoint where the errors occur.\n6. Refactor code: Apply refactoring strategies to improve code readability, maintainability, and reusability.\n\nBy following these steps, you can effectively fix code errors in your programs.",
+      "expected_output": "Debugging involves identifying and resolving software defects",
+      "retrieval_context": [
+        "Fix code errors to fix programs. Fix debugging by fixing lines. Fix syntax to fix runtime. Fix logic to fix output.",
+        "Students learn through practice and feedback. Educational systems adapt to individual needs. Personalized learning improves outcomes. Cognitive science studies how humans acquire knowledge.",
+        "Code reviews prevent code errors. Static analysis finds code mistakes. Linting checks code style. Code standards reduce code bugs in code bases."
+      ]
+    },
+    {
+      "input": "What is RAG?",
+      "actual_output": "RAG refers to Rag fashion shows, which display Rag clothing and are produced by the Rag industry.",
+      "expected_output": "Retrieval-Augmented Generation combines retrieval with language models",
+      "retrieval_context": [
+        "RAG designers create RAG collections. RAG fashion shows display RAG clothing. RAG industry produces RAG garments. RAG trends influence RAG styles.",
+        "Buffer overflow causes RAG faults. Memory RAG errors crash systems. RAG allocation fails when RAM exhausted. RAG segmentation faults indicate pointer issues."
+      ]
+    }
+  ],
+  "cached_at": "2026-02-10 22:55:09"
+}

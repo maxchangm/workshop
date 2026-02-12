@@ -1,0 +1,72 @@
+{
+  "corpus_name": "s17",
+  "judge_model": "modal/qwen3-vl-8b",
+  "method": "BM25 Search",
+  "avg_scores": {
+    "Contextual Precision": 0.75,
+    "Answer Relevancy": 0.7222222222222222
+  },
+  "per_case": [
+    {
+      "input": "What are the requirements for managing cryptographic keys?",
+      "actual_output": "The security requirements for managing cryptographic keys include generating, storing, archiving, retrieving, distributing, retiring, and destroying keys throughout their entire life cycle. Information classified as RESTRICTED or above is encrypted in storage irrespective of the storage media. Additionally, information transmitted over networks shall be protected from unauthorised interception and modification by means of encryption.",
+      "expected_output": "B/Ds shall manage cryptographic keys through their whole life cycle including generating, storing, archiving, retrieving, distributing, retiring and destroying keys",
+      "retrieval_context": [
+        "Security Requirements of Information Systems. Information security requirements shall be included in the requirements for new information systems or enhancements to existing information systems.",
+        "Cryptographic Controls. B/Ds shall manage cryptographic keys through their whole life cycle, including generating, storing, archiving, retrieving, distributing, retiring and destroying keys. Information classified as RESTRICTED or above shall be encrypted in storage irrespective of the storage media. Information transmitted over networks shall be protected from unauthorised interception and modification by means of encryption.",
+        "User Access Management. Procedures for approving, granting and managing user access, including user registration/de-registration, password delivery and password reset, shall be documented."
+      ]
+    },
+    {
+      "input": "What is the role of the Departmental IT Security Officer?",
+      "actual_output": "The Role of the Departmental IT Security Officer (DSO) is to oversee and manage the Information Technology Security Operations within the department. This involves ensuring the security policies are set up, reviewing them regularly, and providing guidance on implementing these policies effectively. The DSO may take on the role of an executive to handle various aspects related to information security for the B/D.",
+      "expected_output": "DITSO is appointed from senior management to participate in overall steering of IT security matters and ensure accountability",
+      "retrieval_context": [
+        "The Head of B/D will designate a Departmental Security Officer (DSO) to perform the departmental security related duties. The DSO may take on the role of the DITSO. Alternatively, in those B/Ds where someone else is appointed, the DITSO shall collaborate with the DSO to oversee the IT security of the B/D.",
+        "The Head of B/D will designate a Departmental Security Officer (DSO) to perform the departmental security related duties. The DSO will take the role of an executive to: Discharge responsibilities for all aspects of security for the B/D; and Advise on the set up and review of the security policy. The DSO may take on the role of the DITSO.",
+        "Departmental Information Security Incident Response Team (ISIRT) Commander. The ISIRT is the central focal point for co-ordinating the handling of information security incidents occurring within the respective B/D. The Head of B/D should designate an officer from the senior management to be the ISIRT Commander."
+      ]
+    },
+    {
+      "input": "What are the responsibilities of GIRO?",
+      "actual_output": "The roles and responsibilities of IT security staff within a Group I/R organization (Group I) are detailed in Section 5.2 - Departmental IT Security Organisation.",
+      "expected_output": "GIRO maintains central inventory of incidents, prepares statistics reports, coordinates handling of multiple-point security attacks, and enables experience sharing among ISIRTs",
+      "retrieval_context": [
+        "Unit B/Ds shall be responsible for the security protection of their information assets and information systems. The roles and responsibilities of IT security staff within a B/D are detailed in Section 5.2 - Departmental IT Security Organisation.",
+        "The IT Security Working Group (ITSWG) was established in May 2000, and its responsibilities are to: Co-ordinate activities aiming at enhancing the Government IT security; and Follow up matters as instructed by the ISMC.",
+        "Cloud Computing Security. Information classified as RESTRICTED or above shall not be stored in or processed by public cloud services. Before signing an agreement with a cloud service provider, B/Ds shall ensure that the shared responsibilities of both parties are clearly defined, documented, and understood."
+      ]
+    },
+    {
+      "input": "What is the least privilege principle for access control?",
+      "actual_output": "The least privilege principle for access control in this context refers to enforcing the principle that users should only have access to resources and privileges granted by relevant information owners. This ensures that users are given specific levels of permission necessary for their role, reducing the risk of unauthorized access or misuse of sensitive information systems.",
+      "expected_output": "B/Ds shall enforce least privilege when assigning resources and privileges, granting access only when authorised by information owners",
+      "retrieval_context": [
+        "Least Privilege. B/Ds shall enforce the least privilege principle when assigning resources and privileges of information systems to users. Access to information shall not be allowed unless authorised by the relevant information owners. Access to information systems containing classified information shall be restricted by means of logical access control. Access to classified information without appropriate authentication shall not be allowed.",
+        "The ISMC is chaired by the Government Chief Information Officer (GCIO) who is also the Chairman of the Digital Policy Office (DPO). The ISMC has the following major functions: Advise on government information security policies; Endorse IT security guidelines; Review major IT security incidents; and Promote security awareness.",
+        "Departmental Information Security Incident Response Team (ISIRT) Commander. The ISIRT is the central focal point for co-ordinating the handling of information security incidents occurring within the respective B/D. The Head of B/D should designate an officer from the senior management to be the ISIRT Commander."
+      ]
+    },
+    {
+      "input": "What are the restrictions for using public cloud services?",
+      "actual_output": "Based on the provided context, the restrictions for using public cloud services mentioned are as follows:\n\n1. Information classified as RESTRICTED or above shall not be stored in or processed by public cloud services.\n2. Before signing an agreement with a cloud service provider, B/Ds shall ensure that the shared responsibilities of both parties are clearly defined, documented, and understood.",
+      "expected_output": "Information classified as RESTRICTED or above shall not be stored in or processed by public cloud services",
+      "retrieval_context": [
+        "Cloud Computing Security. Information classified as RESTRICTED or above shall not be stored in or processed by public cloud services. Before signing an agreement with a cloud service provider, B/Ds shall ensure that the shared responsibilities of both parties are clearly defined, documented, and understood.",
+        "With the effective use of Internet services and the general adoption of cloud and mobile computing, the security and survivability of information systems are essential to the economy and society. Our increasing dependence on IT for office works and public services delivery has brought new business focus that the key information systems and data we rely on have to be secure and actively protected for the smooth operations of all government bureaux and departments (B/Ds), underpinning public confidence, security and privacy are fundamental to the effective, efficient and safe conduct of government business.",
+        "Computing and Remote Access. B/Ds shall define appropriate usage policies and procedures specifying the security requirements when using mobile computing and remote access. Appropriate security measures shall be adopted to avoid unauthorised access to or disclosure of the information stored and processed by these facilities."
+      ]
+    },
+    {
+      "input": "What are the requirements for backup and recovery?",
+      "actual_output": "Based on the provided context, the requirements for backups and recovery include:\n\n1. Regular backups shall be carried out at regular intervals.\n2. Backup activities shall be reviewed regularly.\n3. Backup restoration tests shall be conducted regularly.\n4. The frequency of backup reviews and restoration tests shall be defined and documented.",
+      "expected_output": "Backups shall be carried out at regular intervals with regular restoration tests and documented frequency",
+      "retrieval_context": [
+        "Backup and Recovery. Backups shall be carried out at regular intervals. B/Ds shall establish and implement backup and recovery policies for their information systems. Backup activities shall be reviewed regularly. Backup restoration tests shall be conducted regularly. The frequency of backup reviews and restoration tests shall be defined and documented. Backup media should also be protected against unauthorised access, misuse or corruption.",
+        "Backup. Backups shall be carried out at regular intervals. B/Ds shall establish and implement backup and recovery policies for their information systems.",
+        "SB and DPO will provide training to DITSOs to facilitate them in carrying out their duties and DITSOs shall attend the designated training. The roles and responsibilities of DITSO shall be clearly defined, which include but are not limited to the following: Establish and maintain an information protection program; Establish a proper security governance process; Identify and manage IT security risks; Define security requirements for information systems under development or procurement; and Report information security incidents to GIRO."
+      ]
+    }
+  ],
+  "cached_at": "2026-02-10 17:37:44"
+}

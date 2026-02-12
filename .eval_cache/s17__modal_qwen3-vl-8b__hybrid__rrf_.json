@@ -1,0 +1,72 @@
+{
+  "corpus_name": "s17",
+  "judge_model": "modal/qwen3-vl-8b",
+  "method": "Hybrid (RRF)",
+  "avg_scores": {
+    "Contextual Precision": 0.8055555555555555,
+    "Answer Relevancy": 1.0
+  },
+  "per_case": [
+    {
+      "input": "What are the requirements for managing cryptographic keys?",
+      "actual_output": "The context provided outlines several key aspects related to managing cryptographic keys within an information system:\n\n1. B/Ds (Business Division) shall manage cryptographic keys throughout their lifecycle.\n2. Information classified as RESTRICTED or above shall be encrypted in storage, irrespective of the storage media.\n3. Information transmitted over networks shall be protected from unauthorised interception and modification by means of encryption.\n\nThese requirements ensure secure management of cryptographic keys to maintain confidentiality, integrity, and availability of information systems.",
+      "expected_output": "B/Ds shall manage cryptographic keys through their whole life cycle including generating, storing, archiving, retrieving, distributing, retiring and destroying keys",
+      "retrieval_context": [
+        "Cryptographic Controls. B/Ds shall manage cryptographic keys through their whole life cycle, including generating, storing, archiving, retrieving, distributing, retiring and destroying keys. Information classified as RESTRICTED or above shall be encrypted in storage irrespective of the storage media. Information transmitted over networks shall be protected from unauthorised interception and modification by means of encryption.",
+        "Security Requirements of Information Systems. Information security requirements shall be included in the requirements for new information systems or enhancements to existing information systems.",
+        "User Access Management. Procedures for approving, granting and managing user access, including user registration/de-registration, password delivery and password reset, shall be documented."
+      ]
+    },
+    {
+      "input": "What is the role of the Departmental IT Security Officer?",
+      "actual_output": "The Role of the Departmental IT Security Officer (DSO) in Unit B/Ds is to perform the departmental security related duties, including managing responsibilities for all aspects of security and advising on setting up and reviewing the security policy. The DSO can take on the role of an executive or collaborate with the DITSO to oversee the IT security of the B/D.",
+      "expected_output": "DITSO is appointed from senior management to participate in overall steering of IT security matters and ensure accountability",
+      "retrieval_context": [
+        "Unit B/Ds shall be responsible for the security protection of their information assets and information systems. The roles and responsibilities of IT security staff within a B/D are detailed in Section 5.2 - Departmental IT Security Organisation.",
+        "The Head of B/D will designate a Departmental Security Officer (DSO) to perform the departmental security related duties. The DSO may take on the role of the DITSO. Alternatively, in those B/Ds where someone else is appointed, the DITSO shall collaborate with the DSO to oversee the IT security of the B/D.",
+        "The Head of B/D will designate a Departmental Security Officer (DSO) to perform the departmental security related duties. The DSO will take the role of an executive to: Discharge responsibilities for all aspects of security for the B/D; and Advise on the set up and review of the security policy. The DSO may take on the role of the DITSO."
+      ]
+    },
+    {
+      "input": "What are the responsibilities of GIRO?",
+      "actual_output": "The main functions of the Government Information Security Incident Response Office (GIRO) include maintaining a central inventory, overseeing the handling of all information security incidents in various government departments, preparing periodic statistics reports on government information security incidents, acting as a central office to coordinate the handling of multiple-point security attacks, and enabling experience sharing and information exchange related to information security incident handling among different ISIRTs within various government sectors.",
+      "expected_output": "GIRO maintains central inventory of incidents, prepares statistics reports, coordinates handling of multiple-point security attacks, and enables experience sharing among ISIRTs",
+      "retrieval_context": [
+        "SB and DPO will provide training to DITSOs to facilitate them in carrying out their duties and DITSOs shall attend the designated training. The roles and responsibilities of DITSO shall be clearly defined, which include but are not limited to the following: Establish and maintain an information protection program; Establish a proper security governance process; Identify and manage IT security risks; Define security requirements for information systems under development or procurement; and Report information security incidents to GIRO.",
+        "The responsibilities of an ISIRT Commander include: Provide overall supervision and co-ordination of information security incident handling; Make decisions on critical matters such as damage containment and system recovery; Trigger the departmental disaster recovery procedure where appropriate; and Collaborate with GIRO in reporting information security incidents.",
+        "To handle information security incidents occurring in B/Ds, an Information Security Incident Response Team (ISIRT) shall be established in each B/D. The Government Information Security Incident Response Office (GIRO) provides central coordination and support to the operation of individual ISIRTs of B/Ds. The GIRO Standing Office serves as the executive arm of GIRO. The GIRO has the following major functions: Maintain a central inventory and oversee the handling of all information security incidents in the Government; Prepare periodic statistics reports on government information security incidents; Act as a central office to co-ordinate the handling of multiple-point security attacks; and Enable experience sharing and information exchange related to information security incident handling among ISIRTs of different B/Ds."
+      ]
+    },
+    {
+      "input": "What is the least privilege principle for access control?",
+      "actual_output": "The least privilege principle for access control refers to enforcing the principle that users should have only the necessary permissions required for them to perform their job functions effectively. This ensures that access to information systems and assets is restricted, with restrictions applied based on need-to-know basis and privileged use of resources.",
+      "expected_output": "B/Ds shall enforce least privilege when assigning resources and privileges, granting access only when authorised by information owners",
+      "retrieval_context": [
+        "Least Privilege. B/Ds shall enforce the least privilege principle when assigning resources and privileges of information systems to users. Access to information shall not be allowed unless authorised by the relevant information owners. Access to information systems containing classified information shall be restricted by means of logical access control. Access to classified information without appropriate authentication shall not be allowed.",
+        "Access Control. B/Ds shall prevent unauthorised user access and compromise of information systems and assets and allow only authorised computer resources to connect to the government internal network.",
+        "User Access Procedures. Procedures for approving, granting and managing user access, including user registration/de-registration, password delivery and password reset, shall be documented. Data access rights shall be granted to users based on a need-to-know basis. The use of special privileges shall be restricted and controlled. User privileges and data access rights shall be clearly defined and reviewed periodically."
+      ]
+    },
+    {
+      "input": "What are the restrictions for using public cloud services?",
+      "actual_output": "The restrictions for using public cloud services include storing classified information as RESTRICTED or above, which should not be stored in or processed by cloud services.",
+      "expected_output": "Information classified as RESTRICTED or above shall not be stored in or processed by public cloud services",
+      "retrieval_context": [
+        "Cloud Computing Security. Information classified as RESTRICTED or above shall not be stored in or processed by public cloud services. Before signing an agreement with a cloud service provider, B/Ds shall ensure that the shared responsibilities of both parties are clearly defined, documented, and understood.",
+        "With the effective use of Internet services and the general adoption of cloud and mobile computing, the security and survivability of information systems are essential to the economy and society. Our increasing dependence on IT for office works and public services delivery has brought new business focus that the key information systems and data we rely on have to be secure and actively protected for the smooth operations of all government bureaux and departments (B/Ds), underpinning public confidence, security and privacy are fundamental to the effective, efficient and safe conduct of government business.",
+        "Computing and Remote Access. B/Ds shall define appropriate usage policies and procedures specifying the security requirements when using mobile computing and remote access. Appropriate security measures shall be adopted to avoid unauthorised access to or disclosure of the information stored and processed by these facilities."
+      ]
+    },
+    {
+      "input": "What are the requirements for backup and recovery?",
+      "actual_output": "The requirements for backup and recovery include conducting backups at regular intervals, establishing and implementing backup policies, reviewing and testing backup activities regularly, defining the frequency of these reviews and tests, protecting backup media from unauthorized access, misuse or corruption, and ensuring that security requirements are included in the requirements for new information systems or enhancements to existing information systems.",
+      "expected_output": "Backups shall be carried out at regular intervals with regular restoration tests and documented frequency",
+      "retrieval_context": [
+        "Backup and Recovery. Backups shall be carried out at regular intervals. B/Ds shall establish and implement backup and recovery policies for their information systems. Backup activities shall be reviewed regularly. Backup restoration tests shall be conducted regularly. The frequency of backup reviews and restoration tests shall be defined and documented. Backup media should also be protected against unauthorised access, misuse or corruption.",
+        "Backup. Backups shall be carried out at regular intervals. B/Ds shall establish and implement backup and recovery policies for their information systems.",
+        "Security Requirements of Information Systems. Information security requirements shall be included in the requirements for new information systems or enhancements to existing information systems."
+      ]
+    }
+  ],
+  "cached_at": "2026-02-10 17:46:07"
+}

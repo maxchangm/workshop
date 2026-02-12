@@ -1,0 +1,52 @@
+{
+  "corpus_name": "synthetic",
+  "judge_model": "modal/qwen3-vl-8b",
+  "method": "Hybrid + REAL Rerank",
+  "avg_scores": {
+    "Contextual Precision": 0.75,
+    "Answer Relevancy": 0.75
+  },
+  "per_case": [
+    {
+      "input": "What is ML?",
+      "actual_output": "Machine Learning is a subset of artificial intelligence that enables systems to learn patterns from data without explicit programming.",
+      "expected_output": "Machine learning is a subset of AI that enables systems to learn from data",
+      "retrieval_context": [
+        "Machine learning is a subset of artificial intelligence that enables systems to learn patterns from data without explicit programming.",
+        "Machine learning uses statistical methods. It involves training models on data. The process includes feature extraction and model selection.",
+        "Machine learning requires machine learning algorithms. Machine learning models need machine learning data. Without machine learning techniques, machine learning cannot work."
+      ]
+    },
+    {
+      "input": "How do automobiles work?",
+      "actual_output": "Automobiles operate through internal combustion engines that transform fuel into mechanical power via controlled explosions within cylinders. Vehicles contain transmissions, differentials, and exhaust systems. Mechanics repair brake pads and replace oil. Dashboards display speed and fuel levels. Electric vehicles use battery packs and electric motors. EV charging stations provide power. Tesla produces electric cars. Range anxiety affects EV adoption.",
+      "expected_output": "Cars use internal combustion engines to convert fuel into mechanical energy",
+      "retrieval_context": [
+        "Cars operate through internal combustion engines that transform fuel into mechanical power via controlled explosions within cylinders.",
+        "Vehicles contain transmissions, differentials, and exhaust systems. Mechanics repair brake pads and replace oil. Dashboards display speed and fuel levels.",
+        "Electric vehicles use battery packs and electric motors. EV charging stations provide power. Tesla produces electric cars. Range anxiety affects EV adoption."
+      ]
+    },
+    {
+      "input": "How to fix code errors?",
+      "actual_output": "To fix code errors, follow these steps:\n\n1. Identify and correct syntax errors.\n2. Check for runtime errors by running the code and verifying the output.\n3. Ensure logic errors are resolved correctly.\n4. Review code standards and best practices to maintain high code quality in future iterations.",
+      "expected_output": "Debugging involves identifying and resolving software defects",
+      "retrieval_context": [
+        "Fix code errors to fix programs. Fix debugging by fixing lines. Fix syntax to fix runtime. Fix logic to fix output.",
+        "Code reviews prevent code errors. Static analysis finds code mistakes. Linting checks code style. Code standards reduce code bugs in code bases.",
+        "Syntax errors violate grammar rules. Runtime errors occur during execution. Logic errors produce wrong results. Exceptions halt program flow."
+      ]
+    },
+    {
+      "input": "What is RAG?",
+      "actual_output": "RAG (Resilient Architecture) refers to a design approach for software applications, emphasizing resilience and fault tolerance. It addresses issues such as buffer overflow errors, memory allocation failures, segmentation faults, and pointer issues within the context of handling data and managing resources effectively in system development.",
+      "expected_output": "Retrieval-Augmented Generation combines retrieval with language models",
+      "retrieval_context": [
+        "Buffer overflow causes RAG faults. Memory RAG errors crash systems. RAG allocation fails when RAM exhausted. RAG segmentation faults indicate pointer issues.",
+        "RAG designers create RAG collections. RAG fashion shows display RAG clothing. RAG industry produces RAG garments. RAG trends influence RAG styles.",
+        "Machine learning is a subset of artificial intelligence that enables systems to learn patterns from data without explicit programming."
+      ]
+    }
+  ],
+  "cached_at": "2026-02-10 17:08:07"
+}
