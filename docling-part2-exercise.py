@@ -81,13 +81,13 @@ def _connect_db(db_path: Path) -> duckdb.DuckDBPyConnection:
 # page_numbers – it's a list of integers.  DuckDB supports native array
 # types (e.g. INTEGER[]) which map directly to Python lists!
 #
-# Use CREATE TABLE IF NOT EXISTS so the script is idempotent.
+# Use DROP + CREATE so re-runs replace data instead of appending duplicates.
 # ───────────────────────────────────────────────────────────────────────────
 
 
 def _create_table(conn: duckdb.DuckDBPyConnection) -> None:
     # ┌──────────────────────────────────────────────────────────────┐
-    # │  TODO 9: Write a CREATE TABLE IF NOT EXISTS statement.       │
+    # │  TODO 9: DROP the table if it exists, then CREATE it.        │
     # │                                                              │
     # │  Table name: rag_chunks                                      │
     # │  Columns:                                                    │
@@ -100,9 +100,9 @@ def _create_table(conn: duckdb.DuckDBPyConnection) -> None:
     # │                                                              │
     # │  In Day 1 we used:                                           │
     # │    conn.execute("CREATE TABLE documents (...)")              │
-    # │  Do the same here with your own schema.                      │
+    # │  Do the same here, but DROP first so re-runs are safe.       │
     # └──────────────────────────────────────────────────────────────┘
-    pass  # ← replace with your CREATE TABLE statement
+    pass  # ← replace with your DROP + CREATE TABLE statements
 
 
 # ═══════════════════════════════════════════════════════════════════════════
