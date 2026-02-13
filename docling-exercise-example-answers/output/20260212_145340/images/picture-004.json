@@ -1,0 +1,7 @@
+{
+  "filename": "picture-004.png",
+  "page_numbers": [
+    13
+  ],
+  "description": "This is a word frequency visualization, likely from a text corpus, showing how often words like “making,” “the,” “registration,” and “process” appear in a specific context, with color-coded bars indicating relative frequency. The visualization includes common tokens like “<pad>” and “<EOS>,” suggesting it’s from a natural language processing model’s output or training data."
+}

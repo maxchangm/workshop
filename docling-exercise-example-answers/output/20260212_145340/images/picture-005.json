@@ -1,0 +1,7 @@
+{
+  "filename": "picture-005.png",
+  "page_numbers": [
+    14
+  ],
+  "description": "The image displays a word alignment visualization, likely from a neural machine translation or sequence-to-sequence model, showing how source words (top row) map to target words (bottom row). A highlighted path traces a specific translation: “The Law” maps to “its application,” illustrating the model’s attention mechanism."
+}

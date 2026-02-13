@@ -1,0 +1,7 @@
+{
+  "filename": "picture-001.png",
+  "page_numbers": [
+    3
+  ],
+  "description": "This diagram illustrates the architecture of a Transformer model, showing how input and output sequences are processed through stacked encoder and decoder blocks. Each block contains multi-head attention and feed-forward layers, with residual connections and layer normalization. The model uses positional encoding to handle sequence order and outputs predictions via a linear layer followed by softmax."
+}
