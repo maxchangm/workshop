@@ -199,14 +199,11 @@ def main() -> int:
     )
     parser.add_argument("--db", type=Path, default=DEFAULT_DB)
     parser.add_argument("--query", type=str, required=True)
+    parser.add_argument("--max-rounds", type=int, default=MAX_ROUNDS)
 
     # ┌──────────────────────────────────────────────────────────────┐
-    # │  TODO 4: Add --max-rounds flag and wire up the pipeline.     │
+    # │  TODO 4: Wire up the pipeline.                               │
     # │                                                              │
-    # │  --max-rounds: type=int, default=3                           │
-    # │    (maximum number of generate→reflect cycles)               │
-    # │                                                              │
-    # │  Then:                                                       │
     # │  - answer = self_rag(conn, query, max_rounds)                │
     # │  - Print the final answer                                    │
     # └──────────────────────────────────────────────────────────────┘

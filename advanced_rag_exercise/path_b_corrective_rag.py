@@ -204,14 +204,11 @@ def main() -> int:
     )
     parser.add_argument("--db", type=Path, default=DEFAULT_DB)
     parser.add_argument("--query", type=str, required=True)
+    parser.add_argument("--threshold", type=float, default=0.3)
 
     # ┌──────────────────────────────────────────────────────────────┐
-    # │  TODO 4: Add --threshold flag and wire up the pipeline.      │
+    # │  TODO 4: Wire up the pipeline.                               │
     # │                                                              │
-    # │  --threshold: type=float, default=0.3                        │
-    # │    (minimum reranker score to consider a doc "relevant")     │
-    # │                                                              │
-    # │  Then:                                                       │
     # │  - results = corrective_rag(conn, query, threshold)          │
     # │  - _generate_answer(query, results)                          │
     # └──────────────────────────────────────────────────────────────┘

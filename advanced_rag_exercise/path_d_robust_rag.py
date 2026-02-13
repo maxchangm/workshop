@@ -214,15 +214,14 @@ def main() -> int:
     )
     parser.add_argument("--db", type=Path, default=DEFAULT_DB)
     parser.add_argument("--query", type=str, required=True)
+    parser.add_argument("--strategy", choices=["hyde", "multi", "hybrid"],
+                        default="hyde")
+    parser.add_argument("--rerank", action="store_true", default=False)
 
     # ┌──────────────────────────────────────────────────────────────┐
-    # │  TODO 4: Add --strategy and --rerank flags.                  │
+    # │  TODO 4: Wire up the pipeline.                               │
     # │                                                              │
-    # │  --strategy: choices=["hyde", "multi", "hybrid"]             │
-    # │              default="hyde"                                   │
-    # │  --rerank:   action="store_true" (flag, no value needed)     │
-    # │                                                              │
-    # │  Then call robust_search() with the parsed args and          │
+    # │  Call robust_search() with the parsed args and               │
     # │  pass results to _generate_answer().                         │
     # └──────────────────────────────────────────────────────────────┘
     args = parser.parse_args()
