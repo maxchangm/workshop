@@ -32,7 +32,7 @@ Run with (from the workshop/ folder):
 
 Prerequisites:
   • workshop/docling_part3.py must exist (cp your Part 3 exercise)
-  • workshop/output/rag_chunks.duckdb from Part 2
+  • docling-exercise-example-answers/output/rag_chunks.duckdb from Part 2
   • Ollama running with qwen3-embedding:0.6b
 """
 
@@ -44,9 +44,15 @@ import time
 from pathlib import Path
 
 # ── Make Part 3 importable ──────────────────────────────────────────────────
-sys.path.insert(0, str(Path(__file__).resolve().parent.parent / "workshop--example-answers"))
+# NOTE: This imports from the example answer key. To use YOUR OWN Part 3 code
+# instead, change the two lines below:
+#   sys.path.insert(0, str(Path(__file__).resolve().parent.parent / "docling-exercise"))
+#   from docling_part3_exercise import (  ← rename your file to use underscores!)
+# (Python can't import filenames with hyphens, so rename
+#  docling-part3-exercise.py → docling_part3_exercise.py first)
+sys.path.insert(0, str(Path(__file__).resolve().parent.parent / "docling-exercise-example-answers"))
 
-from docling_part3_answer import (
+from docling_part3_answer import (  # ← change to docling_part3_exercise to use YOUR code (see NOTE above)
     _connect_db, _search_vector, _search_bm25,
     _hybrid_search, _generate_answer,
     _add_embeddings, _create_indexes,
@@ -76,7 +82,7 @@ def _rerank(query: str, documents: list[str], top_k: int = 3) -> list[tuple[str,
     return [(r["document"], r["relevance_score"]) for r in results]
 
 # ── Constants ───────────────────────────────────────────────────────────────
-DEFAULT_DB = Path(__file__).resolve().parent.parent / "output" / "rag_chunks.duckdb"
+DEFAULT_DB = Path(__file__).resolve().parent.parent / "docling-exercise-example-answers" / "output" / "rag_chunks.duckdb"
 
 
 # ═══════════════════════════════════════════════════════════════════════════

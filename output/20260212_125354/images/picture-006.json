@@ -1,7 +1,0 @@
-{
-  "filename": "picture-006.png",
-  "page_numbers": [
-    15
-  ],
-  "description": "The image displays two visualizations of a neural network’s attention mechanism, likely from a transformer model, comparing attention weights for two different sentences. The top green visualization shows strong attention connections between words in a sentence, while the bottom red visualization shows a sparser, more focused attention pattern, indicating a difference in how the model processes or weights relationships between words in the two contexts."
-}
